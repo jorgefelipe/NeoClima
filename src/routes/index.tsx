@@ -4,15 +4,16 @@ import {
     Route
   } from 'react-router-dom';
 
-  import Home from '../pages/Home';
+
   import Homee from '../pages/Homee';
+  import Login from '../pages/LoginPage/index';
 
   export default function App() {
     return (
       <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Homee}/>
-        <Route path="/Home"  component={Home}/>
+        <Route path="/login"  component={Login}/>
       </Switch>
       </BrowserRouter>
 
