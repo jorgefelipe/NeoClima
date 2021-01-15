@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button, Flex, Link, Text } from '@chakra-ui/react';
 import { FormControl, Input } from '@chakra-ui/react';
-import { Title } from 'components/Ui/Text/index';
+import { Title } from 'components/ui/Text';
 const LoginFrom: React.FC = () => {
   return (
     <Flex w="55%" h="100vh" justifyContent="center" alignItems="center">
