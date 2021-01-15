@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Flex, Text, Image } from '@chakra-ui/react';
-import {Title} from 'components/Ui/Text';
+import { Flex, Image } from '@chakra-ui/react';
+import {Title} from 'components/ui/Text';
 
-import logo from 'assets/images/logo.png';
+import Logo from 'assets/images/logo.png';
 
 const LoginLogo: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ const LoginLogo: React.FC = () => {
       flexDir="column"
       padding="padding2x"
     >
-      <Image w="350px" src={logo} />
+      <Image w="350px" src={Logo} />
       <Title
       padding="padding2x"
       w="500px"

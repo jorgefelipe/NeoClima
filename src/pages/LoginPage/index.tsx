@@ -2,8 +2,8 @@ import React from 'react';
 
 import {Flex} from '@chakra-ui/react';
 
-import LoginForm from 'pages/LoginPage/LoginForm/index';
-import LoginLogo from 'pages/LoginPage/LoginLogo/index';
+import LoginForm from 'pages/LoginPage/LoginForm';
+import LoginLogo from 'pages/LoginPage/LoginLogo';
 const LoginPage: React.FC = () => {
   return (
     <>

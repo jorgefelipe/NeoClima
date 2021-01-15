@@ -4,7 +4,7 @@ import InputMask from 'react-input-mask';
 
 
 import { Flex, Text, Input, Box, InputProps, FlexProps } from '@chakra-ui/react';
-import {TextError} from 'components/ui/TextError';
+import {TextError} from 'components/ui/Text';
 
 
 export interface DefaultInputProps extends InputProps {
