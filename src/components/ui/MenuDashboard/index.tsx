@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom';
 
 import { Flex, Image } from '@chakra-ui/react';
-import logo from 'assents/images/logo.png';
+import Logo from 'assents/images/Logo.png';
 import { SecondaryText } from 'components/ui';
 import MenuItem from 'components/ui/MenuDashboard/components/MenuItem';
 
@@ -44,7 +44,7 @@ const MenuDashboard: React.FC = () => {
             bg="primary"
             mb="1px"
           >
-            <Image src={logo} objectFit="contain" w="100%" />
+            <Image src={Logo} objectFit="contain" w="100%" />
           </Flex>
           {menu?.length > 0 &&
             menu.map((item, index) => (
