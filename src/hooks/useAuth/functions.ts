@@ -8,82 +8,82 @@ import { AuthState } from './provider';
 const toast = createStandaloneToast();
 
 interface ParamsFunctions<T> {
-  state: AuthState;
-  setState(user: AuthState): void;
-  setLoading(loading: boolean): void;
+  state: AuthState
+  setState(user: AuthState): void
+  setLoading(loading: boolean): void
   data: T
 }
 
 export const recoverPassword = async ({
   data,
-  setLoading,
-  }: ParamsFunctions<IRecoverPassword>) => {
-    try {
-      setLoading(true);
-      await firebase.auth().sendPasswordResetEmail(data.email);
-      toast({
-        title:
+  setLoading
+}: ParamsFunctions<IRecoverPassword>) => {
+  try {
+    setLoading(true);
+    await firebase.auth().sendPasswordResetEmail(data.email);
+    toast({
+      title:
         'As instruções para redefinição de senha foram enviadas para o e-mail informado',
-        duration: 3000,
-        status: 'success',
-      });
-    } catch (err) {
-      console.log(err);
-      toast({
-        title: 'Não foi possível enviarpara redefinição de senha',
-        description: getMessagesByError(err),
-        duration: 3000,
-        status: 'error',
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
+      duration: 3000,
+      status: 'success'
+    });
+  } catch (err) {
+    console.log(err);
+    toast({
+      title: 'Não foi possível enviar o email para redefinição de senha',
+      description: getMessagesByError(err),
+      duration: 5000,
+      status: 'error'
+    });
+  } finally {
+    setLoading(false);
+  }
+};
 
-  export const login = async ({
-    data,
-    setState,
-    state,
-    setLoading,
-  } : ParamsFunctions<ILogin>) => {
-    try {
-      setLoading(true);
-      await firebase.auth().signInWithEmailAndPassword(data.email, data.password);
+export const login = async ({
+  data,
+  setState,
+  state,
+  setLoading
+}: ParamsFunctions<ILogin>) => {
+  try {
+    setLoading(true);
+    await firebase.auth().signInWithEmailAndPassword(data.email, data.password);
 
-    } catch (err) {
-      console.log(err);
-      toast({
-        title: 'Não foi possivel realizar o login',
-        description: getMessagesByError(err),
-        duration: 5000,
-        status: 'error',
-      });
-    }finally {
-      setLoading(false);
-    }
-  };
+    setState({ ...state, userIsConnected: true });
+  } catch (err) {
+    console.log(err);
+    toast({
+      title: 'Não foi possível realizar o login',
+      description: getMessagesByError(err),
+      duration: 5000,
+      status: 'error'
+    });
+  } finally {
+    setLoading(false);
+  }
+};
 
-  export const logout = async ({
-    setLoading,
-    setState,
-    state,
-  }: ParamsFunctions<undefined>) => {
-    try {
-      setLoading(true);
-      await firebase.auth().signOut();
-      setState({
-        userIsConnected: false,
-        }) ;
-    } catch (err) {
-      console.log(err);
-      toast({
-        title: 'Não foi possível se desconectar',
-        description: getMessagesByError(err),
-        duration: 5000,
-        status: 'error',
-      });
-    }finally {
-      setLoading(false);
-    }
-  };
-
+export const logout = async ({
+  setLoading,
+  setState,
+  state
+}: ParamsFunctions<undefined>) => {
+  try {
+    setLoading(true);
+    await firebase.auth().signOut();
+    setState({
+      userIsConnected: false
+    });
+  } catch (err) {
+    console.log(err);
+    toast({
+      title: 'Não foi possível se desconectar',
+      description: getMessagesByError(err),
+      duration: 5000,
+      status: 'error'
+    });
+  } finally {
+    setLoading(false);
+  }
+};
