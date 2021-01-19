@@ -3,7 +3,7 @@ import React from 'react';
 import { Flex, Image } from '@chakra-ui/react';
 import {Title} from 'components/ui/Text';
 
-import Logo from 'assets/images/logo.png';
+import Logo from 'assets/images/Logo.png';
 
 const LoginLogo: React.FC = () => {
   return (
