@@ -15,7 +15,9 @@ const MenuItem: React.FC<IProps> = ({ menuPathname, title }) => {
     <Button
       variant="unstyled"
       bg={
-        menuPathname === `/${pathname.split('/')[1]}` ? 'primary' : 'secondary'
+        menuPathname === `/${pathname.split('/')[1]}`
+         ? 'primary'
+         : 'secondary'
       }
       display="flex"
       alignItens="center"
@@ -32,7 +34,7 @@ const MenuItem: React.FC<IProps> = ({ menuPathname, title }) => {
         textAlign="left"
         color={
           menuPathname === `/${pathname.split('/'[1])}`
-            ? 'secuondary'
+            ? 'secondary'
             : 'primary'
         }
       >

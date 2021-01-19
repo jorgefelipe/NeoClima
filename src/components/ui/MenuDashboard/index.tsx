@@ -1,15 +1,20 @@
 import { useHistory } from 'react-router-dom';
 
 import { Flex, Image } from '@chakra-ui/react';
-import Logo from 'assents/images/Logo.png';
 import { SecondaryText } from 'components/ui';
-import MenuItem from 'components/ui/MenuDashboard/components/MenuItem';
 
+import Logo from 'assets/images/Logo.png';
+
+import MenuItem from './components/MenuItem';
 import SingoutButton from './components/SingoutButton';
+
 
 const MenuDashboard: React.FC = () => {
   const { location } = useHistory();
-  const menu = [{ pathname: './clente', title: 'Cliente' }];
+  const menus = [
+    { pathname: '/cliente', title: 'Clientes' },
+  ];
+
   return (
     <Flex>
       <Flex
@@ -20,8 +25,8 @@ const MenuDashboard: React.FC = () => {
       >
         <SecondaryText fontSize="h3" fontWeight="600">
           {
-            menu.find(
-              menu => menu.pathname === `/${location.pathname.split('/')[1]}`
+            menus.find(
+              (menu) => menu.pathname === `/${location.pathname.split('/')[1]}`
             )?.title
           }
         </SecondaryText>
@@ -33,7 +38,7 @@ const MenuDashboard: React.FC = () => {
         position="fixed"
         bg="secondary"
         boxShadow="6px 0px 15px -9px rgba(0,0,0,0.75)"
-        justify-content="space-between"
+        justifyContent="space-between"
         pb="padding"
       >
         <Flex flexDir="column">
@@ -46,8 +51,8 @@ const MenuDashboard: React.FC = () => {
           >
             <Image src={Logo} objectFit="contain" w="100%" />
           </Flex>
-          {menu?.length > 0 &&
-            menu.map((item, index) => (
+          {menus?.length > 0 &&
+            menus.map((item, index) => (
               <MenuItem
                 key={index.toString()}
                 menuPathname={item.pathname}
