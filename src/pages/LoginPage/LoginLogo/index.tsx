@@ -1,29 +1,29 @@
 import React from 'react';
+import { Animate } from 'react-simple-animate';
 
 import { Flex, Image } from '@chakra-ui/react';
-import {Title} from 'components/ui/Text';
+import { Title } from 'components/ui/Text';
 
 import Logo from 'assets/images/Logo.png';
 
 const LoginLogo: React.FC = () => {
   return (
-    <Flex
-      w="45%"
-      h="100vh"
-      background="primary"
-      justifyContent="center"
-      alignItems="center"
-      flexDir="column"
-      padding="padding2x"
-    >
-      <Image w="350px" src={Logo} />
-      <Title
-      padding="padding2x"
-      w="500px"
+    <Animate play duration={3} start={{ opacity: 0 }} end={{ opacity: 2 }}>
+      <Flex
+        w="45vw"
+        h="100vh"
+        background="primary"
+        justifyContent="center"
+        alignItems="center"
+        flexDir="column"
+        padding="padding2x"
       >
-        Ar Condicionados, Produtos e Serviços.
-      </Title>
-    </Flex>
+        <Image w="350px" src={Logo} />
+        <Title padding="padding2x" w="500px">
+          Ar Condicionados, Produtos e Serviços.
+        </Title>
+      </Flex>
+    </Animate>
   );
 };
 
