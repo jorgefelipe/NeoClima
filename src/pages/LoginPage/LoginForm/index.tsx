@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Animate } from 'react-simple-animate';
 
-import { Button, Flex, Link, Text } from '@chakra-ui/react';
+
+import { Button, Flex,  Text } from '@chakra-ui/react';
 import { FormControl, Input } from '@chakra-ui/react';
-import { Title } from 'components/ui/Text';
+import { SecondaryText, Title } from 'components/ui/Text';
+
+import ModalRecoverPassword  from '../ModalrecoverPassword';
+
 const LoginFrom: React.FC = () => {
+  const [showModal, setShowModal] = useState(false);
   return (
     <Animate play duration={1} start={{opacity:0}} end={{opacity:1}}>
       <Flex w="55vw" h="100vh" justifyContent="center" alignItems="center">
@@ -30,7 +35,17 @@ const LoginFrom: React.FC = () => {
           >
             Continuar
           </Button>
-          <Link margin="margin">Esqueceu sua senha?</Link>
+
+          <SecondaryText
+          margin="margin2x"
+          cursor="pointer"
+          onClick={() => setShowModal(true)}
+
+          >
+            Esqueceu a senha?
+          </SecondaryText>
+
+        <ModalRecoverPassword showModal={showModal} setShowModal={setShowModal} />
         </Flex>
       </Flex>
     </Animate>
