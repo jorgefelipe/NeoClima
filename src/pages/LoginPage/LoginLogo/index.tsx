@@ -8,7 +8,12 @@ import Logo from 'assets/images/Logo.png';
 
 const LoginLogo: React.FC = () => {
   return (
-    <Animate play duration={3} start={{ opacity: 0 }} end={{ opacity: 2 }}>
+    <Animate
+      play
+      duration={1}
+      start={{ transform: 'translateY(+40vh)', opacity: 0 }}
+      end={{ transform: 'translateY(0px)', opacity: 1 }}
+    >
       <Flex
         w="45vw"
         h="100vh"
