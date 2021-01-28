@@ -16,7 +16,7 @@ interface ParamsFunctions<T> {
 
 export const recoverPassword = async ({
   data,
-  setLoading
+  setLoading,
 }: ParamsFunctions<IRecoverPassword>) => {
   try {
     setLoading(true);
@@ -67,7 +67,7 @@ export const login = async ({
 export const logout = async ({
   setLoading,
   setState,
-  state
+  state,
 }: ParamsFunctions<undefined>) => {
   try {
     setLoading(true);

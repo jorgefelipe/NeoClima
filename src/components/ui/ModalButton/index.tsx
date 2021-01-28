@@ -1,6 +1,8 @@
 import { Button, ButtonProps } from '@chakra-ui/react';
 
-const ModalButton: React.FC<ButtonProps> = ({ children, ...rest }) => (
+const ModalButton: React.FC<
+ButtonProps // ?
+> = ({ children, ...rest }) => (
   <Button
     color="primary"
     fontSize="p"

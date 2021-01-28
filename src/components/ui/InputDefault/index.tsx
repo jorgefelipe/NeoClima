@@ -1,27 +1,24 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { IconType } from 'react-icons';
 import InputMask from 'react-input-mask';
 
-
-import { Flex, Text, Input, Box, InputProps, FlexProps } from '@chakra-ui/react';
-import {TextError} from 'components/ui/Text';
-
-
+import { Flex, Box, Text, Input, FlexProps, InputProps } from '@chakra-ui/react';
+import { TextError } from 'components/ui/Text';
 export interface DefaultInputProps extends InputProps {
-  containerProps?: FlexProps;
-  labelColor?: string;
-  bgLabelColor?: string;
-  label?: string;
-  errorMsg?: string;
-  maskPlaceholder?: string;
-  register?: any;
-  mask?: string | (string | RegExp)[];
-  IconRight?: IconType;
-  fillIcon?: string;
-  onPressIconRight?(): void;
+  containerProps?: FlexProps
+  labelColor?: string
+  bgLabelColor?: string
+  label?: string
+  errorMsg?: string
+  maskPlaceholder?: string
+  register?: any
+  mask?: string | (string | RegExp)[]
+  iconRigth?: IconType
+  fillIcon?: string
+  onPressIconRigth?(): void
 }
 
-const DefaultInput: React.FC<DefaultInputProps> = ({
+const InputDefault: React.FC<DefaultInputProps> = ({
   containerProps,
   labelColor,
   bgLabelColor,
@@ -30,17 +27,16 @@ const DefaultInput: React.FC<DefaultInputProps> = ({
   register,
   mask,
   maskPlaceholder,
-  IconRight,
-  onPressIconRight,
+  iconRigth,
+  onPressIconRigth,
   fillIcon,
   onChange,
   value,
   ...rest
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-
   return (
-    <Flex flexDir="column" my="margin" {...containerProps}>
+    <Flex flexDir="column" margin="margin">
       {label && (
         <Box position="relative">
           <Text
@@ -48,7 +44,7 @@ const DefaultInput: React.FC<DefaultInputProps> = ({
             fontSize="p"
             fontWeight="500"
             position="absolute"
-            top={-2}
+            top={2}
             left={2}
             backgroundColor={bgLabelColor || 'secondary'}
             pl="padding"
@@ -59,15 +55,9 @@ const DefaultInput: React.FC<DefaultInputProps> = ({
         </Box>
       )}
       <Flex
-        border="1px solid"
-        borderColor={
-          errorMsg
-            ? 'danger'
-            : isFocused
-            ? labelColor || 'primary'
-            : 'gray.200'
-        }
-        borderRadius="4px"
+        border="1px solid "
+        borderColor={errorMsg ? 'danger' : isFocused ? labelColor : 'gray.200'}
+        borderReadiu="4px"
         p="padding"
       >
         <InputMask
@@ -80,18 +70,18 @@ const DefaultInput: React.FC<DefaultInputProps> = ({
         >
           <Input
             ref={register}
-            variant="unstyled"
+            variant="undstyled"
             fontSize="p"
-            fontWeight="800"
-            _placeholder={{
+            fontWeigth="800"
+            _placeHolder={{
               fontSize: 'p',
-              fontWeight: '600',
+              fontWeigth: '600'
             }}
             {...rest}
-          />
+          ></Input>
         </InputMask>
-        {IconRight && (
-          <Box as={IconRight} onClick={onPressIconRight} fill={fillIcon} />
+        {iconRigth && (
+          <Box as={iconRigth} onClick={onPressIconRigth} fill={fillIcon} />
         )}
       </Flex>
       {errorMsg && (
@@ -103,4 +93,4 @@ const DefaultInput: React.FC<DefaultInputProps> = ({
   );
 };
 
-export default DefaultInput;
+export default InputDefault;
