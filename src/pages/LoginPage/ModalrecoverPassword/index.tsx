@@ -1,44 +1,41 @@
-// import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import { Flex } from '@chakra-ui/react';
-// import { yupResolver } from '@hookform/resolvers';
+import { yupResolver } from '@hookform/resolvers';
 import {
   DefaultModal,
   InputDefault,
   ModalButton,
-  SecondaryText
+  SecondaryText,
 } from 'components/ui';
-// import { useAuth } from 'hooks';
-// import * as yup from 'yup';
-
-// import { IRecoverPassword } from 'models/user';
+import { useAuth } from 'hooks';
+import * as yup from 'yup';
 
 interface IProps {
-  showModal: boolean
-  setShowModal(showModal: boolean): void
+  showModal: boolean;
+  setShowModal(showModal: boolean): void;
 }
 
 const ModalRecoverPassword: React.FC<IProps> = ({
   showModal,
-  setShowModal
+  setShowModal,
 }) => {
-  // const { recoverPassword } = useAuth();
+  const { recoverPassword } = useAuth();
+  const schema = yup.object().shape({
+    email: yup.string().required('Campo obrigatório').email('Email inválido'),
+  });
 
-  // const schema = yup.object().shape({
-  //   email: yup.string().required('Campo obrigatório').email('Email inválido')
-  // });
+  const { register, errors, handleSubmit } = useForm<{ email: string }>({
+    defaultValues: {
+      email: '',
+    },
+    resolver: yupResolver(schema),
+  });
 
-  // const { register, handleSubmit } = useForm<IRecoverPassword>({
-  //   defaultValues: {
-  //     email: ''
-  //   },
-  //   resolver: yupResolver(schema)
-  // });
-
-  // const onSubmit = (values: IRecoverPassword) => {
-  //   recoverPassword(values);
-  //   setShowModal(false);
-  // };
+  const onSubmit = (values: { email: string }) => {
+    recoverPassword(values);
+    setShowModal(false);
+  };
 
   return (
     <DefaultModal
@@ -52,8 +49,8 @@ const ModalRecoverPassword: React.FC<IProps> = ({
       </SecondaryText>
       <InputDefault
         name="email"
-        // register={register}
-        // errorMsg={errors.email?.message}
+        register={register}
+        errorMsg={errors.email?.message}
         label="E-mail"
         labelColor="gray.700"
         placeholder="Insira seu email"
@@ -62,9 +59,7 @@ const ModalRecoverPassword: React.FC<IProps> = ({
         <ModalButton color="gray.500" onClick={() => setShowModal(false)}>
           cancelar
         </ModalButton>
-        <ModalButton ml="7px"
-        //  onClick={handleSubmit(onSubmit)}
-        >
+        <ModalButton ml="7px" onClick={handleSubmit(onSubmit)}>
           concluir
         </ModalButton>
       </Flex>

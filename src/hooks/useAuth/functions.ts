@@ -47,10 +47,16 @@ export const login = async ({
   setLoading
 }: ParamsFunctions<ILogin>) => {
   try {
+    console.log('passou2');
     setLoading(true);
     await firebase.auth().signInWithEmailAndPassword(data.email, data.password);
 
     setState({ ...state, userIsConnected: true });
+    toast({
+      title: 'Logado com sucesso',
+      duration: 5000,
+      status: 'success'
+    });
   } catch (err) {
     console.log(err);
     toast({

@@ -10,7 +10,7 @@ import {
   OutlineButton,
   Title,
   SubTitle,
-  SecondaryText,
+  SecondaryText
 } from 'components/ui';
 import { useAuth } from 'hooks';
 import * as yup from 'yup';
@@ -34,14 +34,14 @@ const FormLogin: React.FC = () => {
     password: yup
       .string()
       .min(8, 'A senha deve ter no mínimo 8 caracteres ')
-      .required('Campo obrigatório'),
+      .required('Campo obrigatório')
   });
   const { errors, register, handleSubmit } = useForm<ILogin>({
     defaultValues: {
       email: '',
-      password: '',
+      password: ''
     },
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema)
   });
   return (
     <>

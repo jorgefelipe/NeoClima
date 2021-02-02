@@ -3,7 +3,7 @@ import { Text, TextProps, BoxProps } from '@chakra-ui/react';
 export const Title: React.FC<TextProps> = ({ children, ...rest }) => (
   <Text
     fontSize="h1"
-    color="ice"
+    color="primary"
     textAlign="center"
     fontWeight="700"
     lineHeight="40px"
