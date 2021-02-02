@@ -7,7 +7,7 @@ import LoginLogo from 'pages/LoginPage/LoginLogo';
 const LoginPage: React.FC = () => {
   return (
     <>
-      <Flex>
+      <Flex overflow="hidden">
         <LoginLogo />
         <LoginForm />
       </Flex>

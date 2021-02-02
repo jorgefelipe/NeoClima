@@ -20,7 +20,7 @@ const space = {
   margin3x: '36px',
 };
 
-const fontSizes = {
+const fontSize = {
   p: '12px',
   h6: '14px',
   h5: '16px',
@@ -28,6 +28,7 @@ const fontSizes = {
   h3: '20px',
   h2: '24px',
   h1: '32px',
+
 };
 
-export const theme = extendTheme({ colors, space, fontSizes });
+export const theme = extendTheme({ colors, space, fontSize });
