@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/react-input-mask": "^3.0.0",
     "@types/react-select": "3.0.21",
+    "cross-fetch": "^3.0.6",
     "firebase": "^8.2.1",
     "framer-motion": "^3.2.1",
     "react": "^17.0.1",
